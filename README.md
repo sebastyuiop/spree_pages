@@ -7,9 +7,7 @@ To view your pages from the shop go to:
 
     /pages/whatever-your-permalink-is
 
-I recommend that you also use Spree Editor and configure it to use pages_body:
-
-    https://github.com/spree/spree_editor
+I recommend that you also use [Spree Editor](https://github.com/spree/spree_editor) and configure it to use pages_body.
 
 Installation
 ------------
