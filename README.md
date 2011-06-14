@@ -11,9 +11,11 @@ Installation
 ------------
   
     gem "spree_pages", :git => 'git://github.com/sebastyuiop/spree_pages.git'
+    
+    bundle install
 
     rake spree_pages:install
 
-    rake db:migrate
+    rake db:migrate    
 
 Copyright (c) 2011 sebastyuiop, released under the New BSD License
