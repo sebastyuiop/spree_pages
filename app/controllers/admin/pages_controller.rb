@@ -4,10 +4,6 @@ class Admin::PagesController < Admin::ResourceController
     @pages = Page.paginate(:per_page => 50, :page => params[:page])
   end
 
-  def show
-    @page = Page.find(params[:id])
-  end
-
   def new
     @page = Page.new
   end
