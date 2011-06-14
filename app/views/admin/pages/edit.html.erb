@@ -1,0 +1,14 @@
+<%= hook :admin_page_edit_form_header do %>
+  <%= render 'shared/error_messages', :target => @page %>
+  <h1><%= t("editing_page") %></h1>
+<% end %>
+
+<%= hook :admin_page_edit_form do %>
+  <%= form_for(:page, :url => object_url, :html => { :method => :put }) do |f| %>
+    <%= render :partial => "form", :locals => { :f => f } %>
+
+    <%= hook :admin_page_edit_form_buttons do %>
+      <%= render :partial => "admin/shared/edit_resource_links" %>
+    <% end %>
+  <% end %>
+<% end %>

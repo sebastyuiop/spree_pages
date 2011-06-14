@@ -1,0 +1,32 @@
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <p><%= button_link_to t("new_page"), new_object_url, :icon => 'add' %></p>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%= t("listing_pages") %></h1>
+
+<table class="index">
+  <thead>
+  <tr>
+    <th><%= t("page_title") %></th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @pages.each do |page|%>
+      <tr id="<%= dom_id page %>">
+        <td width="350px"><%=link_to page.title, edit_object_url(page) %></td>
+        <td>
+            <%= link_to_edit page %> &nbsp;
+            <%= link_to_delete page %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
