@@ -1,5 +1,5 @@
 Summary
--------
+=======
 
 This is a really basic page CMS which fits neatly into the Spree Administration toolbar.
 
