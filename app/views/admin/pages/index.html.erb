@@ -12,7 +12,9 @@
 <table class="index">
   <thead>
   <tr>
-    <th><%= t("page_title") %></th>
+    <th><%= t("title") %></th>
+    <th><%= t("permalink") %></th>
+    <th><%= t("published") %></th>
     <th>&nbsp;</th>
   </tr>
   </thead>
@@ -20,6 +22,8 @@
     <% @pages.each do |page|%>
       <tr id="<%= dom_id page %>">
         <td width="350px"><%=link_to page.title, edit_object_url(page) %></td>
+        <td><%= page.permalink %></td>
+        <td><%= t(page.published? ? 'yes' : 'no') %></td>
         <td>
             <%= link_to_edit page %> &nbsp;
             <%= link_to_delete page %>
