@@ -1,8 +1,7 @@
 class PagesController < Spree::BaseController
   before_filter { render_404 if params[:id] =~ /(\.|\\)/ }
   
-  rescue_from ActionView::MissingTemplate, :with => :render_404
-  caches_page :show, :if => Proc.new { Spree::Config[:cache_static_content] }
+  caches_action :show, :if => Proc.new { Spree::Config[:cache_static_content] }, :layout => false
   
   respond_to :html
   
