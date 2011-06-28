@@ -12,7 +12,7 @@ I recommend that you also use [Spree Editor](https://github.com/spree/spree_edit
 Installation
 ------------
   
-    gem "spree_pages", :git => 'git://github.com/tvdeyen/spree_pages.git'
+    gem "spree_pages", :git => 'git://github.com/sebastyuiop/spree_pages.git'
     
     bundle install
 
