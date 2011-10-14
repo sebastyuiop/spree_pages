@@ -3,4 +3,6 @@ class Page < ActiveRecord::Base
   validates :permalink, :uniqueness => true
   
   scope :published, where(:published => true)
+
+  paginates_per 50
 end
