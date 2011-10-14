@@ -11,13 +11,14 @@ I recommend that you also use [Spree Editor](https://github.com/spree/spree_edit
 
 Installation
 ------------
-  
+Add the following to your Gemfile: 
+
     gem "spree_pages", :git => 'git://github.com/sebastyuiop/spree_pages.git'
-    
+
+Run bundle install
+
     bundle install
 
-    rake spree_pages:install
+To copy and apply required migrations run:
 
-    rake db:migrate    
-
-Copyright (c) 2011 sebastyuiop, released under the New BSD License
+    rails g spree_pages:install

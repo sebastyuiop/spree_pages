@@ -3,7 +3,7 @@ class Admin::PagesController < Admin::ResourceController
   cache_sweeper PageSweeper, :only => [ :edit, :update, :destroy ]
   
   def index
-    @pages = Page.paginate(:per_page => 50, :page => params[:page])
+    @pages = Page.page(params[:page])
   end
   
   def new
