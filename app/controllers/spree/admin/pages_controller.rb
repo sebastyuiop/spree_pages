@@ -1,5 +1,5 @@
 module Spree
-  class Admin::PagesController < Spree::Admin::ResourceController
+  class Admin::PagesController < Admin::ResourceController
     
     cache_sweeper PageSweeper, :only => [ :edit, :update, :destroy ]
     

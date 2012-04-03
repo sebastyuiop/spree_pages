@@ -1,43 +1,22 @@
-class Admin::PagesController < Admin::ResourceController
-  
-  cache_sweeper PageSweeper, :only => [ :edit, :update, :destroy ]
-  
-  def index
-    @pages = Page.page(params[:page])
-  end
-  
-  def new
-    @page = Page.new
-  end
-  
-  def create
-    @page = Page.new(params[:page])
-    if @page.save
-      flash[:notice] = "Successfully created page."
-      redirect_to admin_pages_url
-    else
-      render :action => 'new'
+module Spree
+  class PagesController < BaseController
+    before_filter { render_404 if params[:id] =~ /(\.|\\)/ }
+
+    caches_action :show, :if => Proc.new { Config[:cache_static_content] }, :layout => false
+
+    respond_to :html
+
+    # GET /pages/about-us
+    def show
+      @page = Page.published.find_by_permalink(params[:id])
+      if @page.blank?
+        render_404
+      else
+        respond_to do |format|
+          format.html # show.html.erb
+        end
+      end
     end
-  end
-  
-  def edit
-    @page = Page.find(params[:id])
-  end
-  
-  def update
-    @page = Page.find(params[:id])
-    if @page.update_attributes(params[:page])
-      flash[:notice] = "Successfully updated page."
-      redirect_to admin_pages_url
-    else
-      render :action => 'edit'
-    end
-  end
-  
-  def destroy
-    @page = Page.find(params[:id])
-    @page.destroy
-    flash[:notice] = "Successfully destroyed page."
-    redirect_to admin_pages_url
+
   end
 end
