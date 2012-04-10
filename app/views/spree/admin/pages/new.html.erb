@@ -1,5 +1,5 @@
 <%= hook :admin_page_new_form_header do %>
-  <%= render 'shared/error_messages', :target => @page %>
+  <%= render 'spree/shared/error_messages', :target => @page %>
   <h1><%= t("new_page") %></h1>
 <% end %>
 
@@ -8,7 +8,7 @@
     <%= render :partial => "form", :locals => { :f => f } %>
 
     <%= hook :admin_page_new_form_buttons do %>
-      <%= render :partial => "admin/shared/new_resource_links" %>
+      <%= render :partial => "spree/admin/shared/new_resource_links" %>
     <% end %>
   <% end %>
 <% end %>
