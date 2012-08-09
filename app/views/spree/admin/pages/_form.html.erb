@@ -1,5 +1,5 @@
 <%- locals = {:f => f} %>
-<%= hook :admin_page_form_fields, locals do %>
+<div data-hook="admin_page_form_fields">
   <%= f.field_container :title do %>
     <%= f.label :title, t("title") %><br />
     <%= f.text_field :title  %>
@@ -35,5 +35,4 @@
     <%= f.check_box :published  %>
     <%= error_message_on :page, :published %>
   <% end %>
-  
-<% end %>
+</div>

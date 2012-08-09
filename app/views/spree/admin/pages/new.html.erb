@@ -1,14 +1,14 @@
-<%= hook :admin_page_new_form_header do %>
+<div data-hook="admin_page_new_form_header">
   <%= render 'spree/shared/error_messages', :target => @page %>
-  <h1><%= t("new_page") %></h1>
-<% end %>
+  <h1><%= t("new_page") %></h1>  
+</div>
 
-<%= hook :admin_page_new_form do %>
+<div data-hook="admin_page_new_form">
   <%= form_for(:page, :url => collection_url) do |f| %>
     <%= render :partial => "form", :locals => { :f => f } %>
 
-    <%= hook :admin_page_new_form_buttons do %>
+    <div data-hook="admin_page_new_form_buttons">
       <%= render :partial => "spree/admin/shared/new_resource_links" %>
-    <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>
