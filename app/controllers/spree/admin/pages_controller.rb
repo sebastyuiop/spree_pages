@@ -36,10 +36,21 @@ module Spree
     end
     
     def destroy
-      @page = Page.find(params[:id])
-      @page.destroy
-      flash[:notice] = "Successfully destroyed page."
-      redirect_to admin_pages_url
+      @object = Page.find(params[:id])
+      invoke_callbacks(:destroy, :before)
+      if @object.destroy
+        invoke_callbacks(:destroy, :after)
+        flash.notice = flash_message_for(@object, :successfully_removed)
+        respond_with(@object) do |format|
+          format.html { redirect_to admin_pages_url }
+          format.js   { render :partial => "spree/admin/shared/destroy" }
+        end
+      else
+        invoke_callbacks(:destroy, :fails)
+        respond_with(@object) do |format|
+          format.html { redirect_to admin_pages_url }
+        end
+      end
     end
   end
 end
