@@ -1,11 +1,6 @@
-<div class='toolbar'>
-  <ul class='actions'>
-    <li>
-      <p><%= button_link_to t("new_page"), new_object_url, :icon => 'add' %></p>
-    </li>
-  </ul>
-  <br class='clear' />
-</div>
+<%content_for :page_actions do %>
+	<%= button_link_to t("new_page"), new_object_url, :icon => 'add' %>
+<% end %>
 
 <h1><%= t("listing_pages") %></h1>
 

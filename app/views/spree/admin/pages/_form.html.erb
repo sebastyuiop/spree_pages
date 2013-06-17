@@ -8,13 +8,13 @@
   
   <%= f.field_container :meta_keywords do %>
     <%= f.label :meta_keywords, t("meta_keywords") %><br />
-    <%= f.text_area :meta_keywords %>
+    <%= f.text_area :meta_keywords, rows: 2 %>
     <%= error_message_on :page, :meta_keywords %>
   <% end %>
   
   <%= f.field_container :meta_description do %>
     <%= f.label :meta_description, t("meta_description") %><br />
-    <%= f.text_area :meta_description %>
+    <%= f.text_area :meta_description, rows: 2 %>
     <%= error_message_on :page, :meta_description %>
   <% end %>
   
