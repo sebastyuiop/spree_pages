@@ -9,7 +9,7 @@ module Spree
     end
     
     def create
-      @page = Page.new(params[:page])
+      @page = Page.new(pages_params)
       if @page.save
         flash[:notice] = "Successfully created page."
         redirect_to admin_pages_url
@@ -24,7 +24,7 @@ module Spree
     
     def update
       @page = Page.find(params[:id])
-      if @page.update_attributes(params[:page])
+      if @page.update_attributes(pages_params)
         flash[:notice] = "Successfully updated page."
         redirect_to admin_pages_url
       else
@@ -48,6 +48,12 @@ module Spree
           format.html { redirect_to admin_pages_url }
         end
       end
+    end
+
+    protected
+
+    def pages_params
+      params.require(:page).permit(:title, :meta_keywords, :meta_description, :body, :permalink, :published)
     end
   end
 end
