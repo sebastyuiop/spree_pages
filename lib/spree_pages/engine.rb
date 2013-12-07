@@ -14,6 +14,10 @@ module SpreePages
       end
     end
 
+    config.to_prepare do
+      ApplicationController.helper(PagesHelper)
+    end
+
     config.to_prepare &method(:activate).to_proc
   end
 end
