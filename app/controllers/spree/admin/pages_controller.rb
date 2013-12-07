@@ -1,8 +1,5 @@
 module Spree
   class Admin::PagesController < Admin::ResourceController
-    
-    cache_sweeper PageSweeper, :only => [ :edit, :update, :destroy ]
-    
     def index
       @pages = Page.page(params[:page])
     end
