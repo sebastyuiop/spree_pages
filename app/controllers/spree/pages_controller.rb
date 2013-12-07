@@ -1,5 +1,9 @@
 module Spree
   class PagesController < BaseController
+    include Spree::StoreHelper
+    
+    layout 'spree/layouts/spree_application'
+
     before_filter { render_404 if params[:id] =~ /(\.|\\)/ }
 
     respond_to :html
