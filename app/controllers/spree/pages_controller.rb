@@ -1,8 +1,10 @@
 module Spree
   class PagesController < BaseController
-    before_filter { render_404 if params[:id] =~ /(\.|\\)/ }
+    include Spree::Core::ControllerHelpers::Order
 
-    caches_action :show, :if => Proc.new { Config[:cache_static_content] }, :layout => false
+    layout 'spree/layouts/spree_application'
+
+    before_filter { render_404 if params[:id] =~ /(\.|\\)/ }
 
     respond_to :html
 
